@@ -40,7 +40,7 @@ function displayChart() {
         },
         title: {
           display: true,
-          text: 'Average daily production for '+monthNames[currentMonth-1]+ ' in Wh by hour of the day'
+          text: 'Average daily production for '+monthNames[currentMonth-1]+ ' in Wh by hour (UTC) of the day'
         },
         tooltips: {
             callbacks: {

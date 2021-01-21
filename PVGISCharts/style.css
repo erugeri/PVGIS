@@ -1,0 +1,46 @@
+h1 {
+	margin:40px;
+	text-align:center;
+}
+
+#chart {
+	width:850px;
+	height:450px;
+	margin:auto;
+}
+
+#panel {
+	width:850px;
+	margin:auto;
+	margin-top:50px;
+}
+
+#panel h2 {
+	margin-top:10px;
+	font-size:12px;
+}
+
+#panel p {
+	font-size:10px;
+	margin-left:10px;
+}
+
+#month{
+	width:850px;
+	float:left;
+	margin-bottom:10px;
+}
+
+#a{
+	width:425px;
+	float:left;
+}
+
+#b{
+	width:425px;
+	float:left;
+}
+
+#panel input, #panel select {
+	margin:5px;
+}

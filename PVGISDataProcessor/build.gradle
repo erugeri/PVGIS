@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group 'fr.rugeri'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+        resources {
+            srcDirs = ['resources']
+        }
+    }
+}
+
+dependencies {
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'commons-cli:commons-cli:1.4'
+}

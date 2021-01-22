@@ -11,6 +11,8 @@ var currentDataA;
 var currentDataB;
 var currentMonth = 1;
 
+var useLocalTime = false;
+
 var chart;
 
 function displayChart() {
@@ -36,11 +38,11 @@ function displayChart() {
       },
       options: {
         animation: {
-            duration: 200
+            duration: 50
         },
         title: {
           display: true,
-          text: 'Average daily production for '+monthNames[currentMonth-1]+ ' in Wh by hour (UTC) of the day'
+          text: 'Average daily production for '+monthNames[currentMonth-1]+ ' in Wh by hour of the day'
         },
         tooltips: {
             callbacks: {
@@ -69,6 +71,13 @@ function displayChart() {
 
 function loadMonth(s) {
   currentMonth = s;
+
+  updateDescription();
+  displayChart();
+}
+
+function changeTime(s) {
+  useLocalTime = "UTC" != s;
 
   updateDescription();
   displayChart();
@@ -104,9 +113,25 @@ function extractDataset(data) {
   }
   var a = [];
   for (h=0; h<24; h++) {
-    a.push(data['data'][currentMonth][h]);
+    a.push(data['data'][currentMonth][adaptTime(currentMonth, h)]);
   }
   return a;
+}
+
+
+var localTimeWinterDelta = 1;
+var localTimeSummerDelta = 2;
+// FIXME currently only works with small delta time (~ -3/+3) as there's no production around midnight so no issue.
+// otherwise, we'd need to support day change which is a lot more complex
+function adaptTime(m, h) {
+  if (useLocalTime) {
+    if (m <= 3 || m >= 11) {
+      return Math.max(Math.min(h-localTimeWinterDelta, 23), 0);
+    } else {
+      return Math.max(Math.min(h-localTimeSummerDelta, 23), 0);
+    }
+  }
+  return h;
 }
 
 function updateDescription() {

@@ -26,16 +26,19 @@ h1 {
 }
 
 #month{
-	width:850px;
+	width:425px;
 	float:left;
 	margin-bottom:10px;
 }
-
+#time{
+	width:425px;
+	float:left;
+	margin-bottom:10px;
+}
 #a{
 	width:425px;
 	float:left;
 }
-
 #b{
 	width:425px;
 	float:left;

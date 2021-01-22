@@ -3,7 +3,7 @@
 This is a tool to easily compare the efficiency of different solar panels configurations.
 This is not self serve but if you understand code a little bit you should be able to quickly adapt it
 
-![example](https://www.rugeri.fr/PVGIS/example.png)
+![example](https://www.rugeri.fr/PVGIS/example.png?t=1)
 
 Click [here](https://rugeri.fr/PVGIS/) to test it live.
 
